@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "convert_ages_to_days"
+name = "age-to-days"
 version = "0.1.0"
