@@ -1,0 +1,1 @@
+/Users/dev/Documents/rustprojs/100_days_rust/100-Days-Of-Rust/Week-01/Day-03_Barbecue-Skewers/bbq/target/debug/bbq: /Users/dev/Documents/rustprojs/100_days_rust/100-Days-Of-Rust/Week-01/Day-03_Barbecue-Skewers/bbq/src/main.rs

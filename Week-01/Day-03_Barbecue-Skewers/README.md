@@ -1,4 +1,4 @@
-## Barbecue Skewers
+kebab## Barbecue Skewers
 
 You are in charge of the barbecue grill. A **vegetarian skewer** is a skewer that has **only vegetables (-o)**. A **non-vegetarian skewer** is a skewer with **at least one piece of meat (-x)**.
 
@@ -31,7 +31,7 @@ Given a BBQ grill, write a function that returns `[# vegetarian skewers, # non-v
   "--o---",
   "-o-----o---x--",
   "--o---o-----"
-) ➞ [3, 2]
+] ➞ [3, 2]
 ```
 
 ---
