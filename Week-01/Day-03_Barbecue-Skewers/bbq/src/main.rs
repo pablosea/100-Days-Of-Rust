@@ -22,7 +22,7 @@ fn main() {
     let mut meaty: i32 =0;
 
     for i in grill{
-        if i.replace(&['-','"','!'][..],"").contains("x"){
+        if i.contains("x"){
             meaty += 1;
         }else{
             veggie += 1;
