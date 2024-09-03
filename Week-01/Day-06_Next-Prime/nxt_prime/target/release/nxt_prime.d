@@ -1,0 +1,1 @@
+/Users/dev/Documents/rustprojs/100_days_rust/100-Days-Of-Rust/Week-01/Day-06_Next-Prime/nxt_prime/target/release/nxt_prime: /Users/dev/Documents/rustprojs/100_days_rust/100-Days-Of-Rust/Week-01/Day-06_Next-Prime/nxt_prime/src/main.rs
