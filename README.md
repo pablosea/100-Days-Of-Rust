@@ -1,7 +1,8 @@
 <h1 align="center">100 Days of Rust 🦀 </h1>
 <p align="center">
+
 # Description
-trying this out, fork if you'd like to see my solutions, they're prob not optimized but it's honest work.
+Trying this out, fork if you'd like to see my solutions, they're prob not optimized but it's honest work.
 
   
 # Resources
