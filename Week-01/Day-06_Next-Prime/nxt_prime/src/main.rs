@@ -9,13 +9,13 @@ fn main() {
 }
 
 fn is_prime(num:i128)-> bool{
-    let mut factors: Vec<i128> = Vec::new();
+    let mut factors: i128 = 0;
     let mut i:i128 = 1;
     while i*i <= num {
         if num % i == 0  {
-            factors.push(i);
+            factors += 1;
         }
-        if factors.len() > 1{
+        if factors > 1{
             return false;
         }
         i += 1;
