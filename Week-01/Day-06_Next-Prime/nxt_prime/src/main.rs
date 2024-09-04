@@ -4,6 +4,7 @@ fn main() {
    next_prime(11);
    next_prime(100);
    next_prime(1000062);
+   next_prime(2);
    next_prime(100000000200000070);
 // next_prime(100000000200000000084); this returns 100000000200000000151 which is prime but takes like 8 minutes to run lol
 }
