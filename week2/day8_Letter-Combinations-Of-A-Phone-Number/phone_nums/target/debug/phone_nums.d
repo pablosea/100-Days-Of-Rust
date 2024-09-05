@@ -1,0 +1,1 @@
+/Users/dev/Documents/rustprojs/100_days_rust/100-Days-Of-Rust/week2/day8_Letter-Combinations-Of-A-Phone-Number/phone_nums/target/debug/phone_nums: /Users/dev/Documents/rustprojs/100_days_rust/100-Days-Of-Rust/week2/day8_Letter-Combinations-Of-A-Phone-Number/phone_nums/src/main.rs
