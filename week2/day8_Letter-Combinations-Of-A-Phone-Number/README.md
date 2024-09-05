@@ -10,6 +10,8 @@ A mapping of digit to letters (just like on the telephone buttons) is given belo
 
 Note: *whoever made this fucking repo didn't put the assests in the same folder as the projects so if I opend the workspace from folder i can't see the image, but if I open the workspace to include the scope of the assets rust analyzer doesnt work unless I add ***100*** unique fucking paths to my .json settings.*
 
+*Added mapping below:*
+
 ```rust
 t9 mapping:
 (1, ""),
@@ -21,7 +23,7 @@ t9 mapping:
 (7, "pqrs"),
 (8, "tuv"),
 (9, "wxyz"),
-(0, ""),
+(0, "")
 ```
 
 ### Examples
