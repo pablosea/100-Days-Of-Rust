@@ -7,7 +7,9 @@ fn main() {
 }
 
 fn find_t9(nums: &str){
+
     let valid_chars: [char; 10] = ['0','1','2','3','4','5','6','7','8','9'];
+
     let charvec = nums.chars();
     let mut numvec = Vec::new();
     let mut lettervec = Vec::new();
@@ -20,7 +22,6 @@ fn find_t9(nums: &str){
             //println!("invalid character input {i} is not supported and has been removed. \n");
         }
     }
-
 
     let t9: HashMap<i32, &str> = HashMap::from([
         (1, ""),
