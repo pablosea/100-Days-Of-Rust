@@ -24,3 +24,4 @@ Output: [1,2,2,3,5,6]
 
 - The number of elements initialized in nums1 and nums2 are m and n respectively.
 - You may assume that nums1 has enough space (size that is **equal** to m + n) to hold additional elements from nums2.
+
