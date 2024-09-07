@@ -4,10 +4,12 @@ fn main() {
     let elevation_map1: [i32; 12] = [0,1,0,2,1,0,1,3,2,1,2,1];
     let elevation_map2: [i32; 6] = [4,2,0,3,2,5];
     let elevation_map3: [i32; 20] = [0,0,0,3,7,0,5,4,0,9,0,3,5,6,12,7,9,2,0,3];
+    let elevation_map4: [i32; 14] = [4,2,0,3,2,5,0,0,7,0,2,0,0,0];
 
     catch_water(elevation_map1.to_vec());
     catch_water(elevation_map2.to_vec());
     catch_water(elevation_map3.to_vec());
+    catch_water(elevation_map4.to_vec());
 }
 
 //find the largest height in an array
