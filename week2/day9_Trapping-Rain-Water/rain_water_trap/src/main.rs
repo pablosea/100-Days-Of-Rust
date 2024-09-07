@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 
 fn main() {
 
@@ -10,6 +12,9 @@ fn main() {
     catch_water(elevation_map2.to_vec());
     catch_water(elevation_map3.to_vec());
     catch_water(elevation_map4.to_vec());
+
+
+ //   v2(elevation_map1.to_vec());
 }
 
 //find the largest height in an array
@@ -75,3 +80,39 @@ fn catch_water(somevec: Vec<i32>){
     }
     println!("\nTotal water caught: {} \n\n",water);
 }
+
+
+//second attempt at a more refined version
+//fn v2(somevec: Vec<i32>){
+//
+//    let mut playvec: Vec<i32> = somevec;
+//    let mut water = 0;
+//    let mut data: HashMap<&str, i32> = HashMap::new();
+//    data.insert("wall1",0);
+//    data.insert("wall2", 0);
+ //   let mut d1 = data.get("wall1").copied().unwrap();
+//
+//    for (x,i) in playvec.iter().enumerate(){
+//        if data.get("wall1").copied().unwrap() < *i {
+//            data.insert("wall1", *i);
+//        }
+//        
+//        if x > 0 && x < playvec.len()-1{
+//            if playvec[x+1] > data.get("wall1").copied().unwrap(){
+//                data.insert("wall2", playvec[x+1]);
+//            }else if d1 != 0{
+//
+ //               water = data.get("wall1").copied().unwrap() - i;
+//            }
+//        }
+//
+//        [w1..w2].iter()
+        
+//    }
+
+ //   println!("{}", water);
+    //update height with the vec number
+    //get the length of the index between this number and the next biggest number 
+    //at each point in that index, subtract the value from the lesser of the two walls
+    
+//}
