@@ -27,8 +27,8 @@ fn catch_water(somevec: Vec<i32>){
     //make vector of vectors
     let mut mapvec: Vec<Vec<i32>> = vec![vec![0; length as usize]; *height as usize];
 
-    //for each ground value in our mutable argument vector update the value in map vec
-    //increment on height 
+    //for each ground value in "elevation" vector, update the value in map vec
+    //increment via height 
     let mut height_index_counter: i32 = *height;
     let mut water: i32 = 0;
 
@@ -50,7 +50,6 @@ fn catch_water(somevec: Vec<i32>){
                 }
             }  
         }
-        //decrease the height and go again
         height_index_counter -= 1;
     }
 
@@ -69,11 +68,8 @@ fn catch_water(somevec: Vec<i32>){
     }
 
     println!("height: {}, length: {}, area: {}\nMap:",height, length, area);
-
-    //formatted printing so i could visualize this mess
     for i in &mapvec{
         println!("{:?}", i);
     }
     println!("\nTotal water caught: {} \n\n",water);
-
 }
