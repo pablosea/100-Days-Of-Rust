@@ -7,6 +7,7 @@ fn catalan(num: i128) -> i128{
 
 }
 
+//golfed
 fn c(n:i128)->i128{(2..=n).fold(1,|a,k|a*(4*k-2)/(k+1))}
 
 fn main(){
