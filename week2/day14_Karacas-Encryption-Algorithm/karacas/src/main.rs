@@ -9,23 +9,8 @@ fn main() {
 }
 
 fn encrypt(word: String) {
-
-    let vowel_map: HashMap<char, char> = HashMap::from([
-        ('a', '0'),
-        ('e', '1'),
-        ('i', '2'),
-        ('o', '2'),
-        ('u', '3'),
-    ]);
-
-    let mut newwrd: String = word.chars()
-                   .rev()
-                   .map(|c| *vowel_map.get(&c).unwrap_or(&c))
-                   .collect();
-
-    newwrd.push_str("aca");
-                   
+    let vowel_map: HashMap<char, char> = HashMap::from([('a', '0'),('e', '1'),('i', '2'),('o', '2'),('u', '3'),]);
+    let mut newwrd: String = word.chars().rev().map(|c| *vowel_map.get(&c).unwrap_or(&c)).collect();
+    newwrd.push_str("aca");            
     println!("{}", newwrd);
-
-    //comment
 }
