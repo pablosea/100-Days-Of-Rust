@@ -8,7 +8,7 @@ Create a function that takes two parameters, a list of the weights of each item 
 
 ### Example
 
-```text
+```rust
 CanFit(new int[] { 2, 1, 2, 5, 4, 3, 6, 1, 1, 9, 3, 2 }, 4) ➞ True
 // Bag 1 = [2, 1, 2, 5] (10kg)
 // Bag 2 = [4, 3, 3] (10kg)
