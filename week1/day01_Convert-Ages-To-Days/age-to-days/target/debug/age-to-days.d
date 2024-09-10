@@ -1,1 +1,0 @@
-/Users/dev/Documents/rustprojs/100_days_rust/100-Days-Of-Rust/Week-01/Day-01_Convert-Ages-To-Days/age-to-days/target/debug/age-to-days: /Users/dev/Documents/rustprojs/100_days_rust/100-Days-Of-Rust/Week-01/Day-01_Convert-Ages-To-Days/age-to-days/src/main.rs

@@ -1,1 +1,0 @@
-/Users/dev/Documents/rustprojs/100_days_rust/100-Days-Of-Rust/Week-01/day7_merge_sorted_array/merge_arrays/target/debug/merge_arrays: /Users/dev/Documents/rustprojs/100_days_rust/100-Days-Of-Rust/Week-01/day7_merge_sorted_array/merge_arrays/src/main.rs

@@ -1,1 +1,0 @@
-/data/data/com.termux/files/home/projects/100_days/100-Days-Of-Rust/Week-01/Day-06_Next-Prime/nxt_prime/target/debug/nxt_prime: /data/data/com.termux/files/home/projects/100_days/100-Days-Of-Rust/Week-01/Day-06_Next-Prime/nxt_prime/src/main.rs
