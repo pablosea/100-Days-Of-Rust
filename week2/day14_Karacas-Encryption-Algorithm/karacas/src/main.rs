@@ -26,4 +26,6 @@ fn encrypt(word: String) {
     newwrd.push_str("aca");
                    
     println!("{}", newwrd);
+
+    //comment
 }
