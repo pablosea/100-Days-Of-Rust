@@ -8,7 +8,7 @@ Step 1: Reverse the input: `"elppa"`
 
 Step 2: Replace all vowels using the following chart:
 
-```text
+```rust
 a => 0
 e => 1
 i => 2
@@ -24,7 +24,7 @@ Output: `"1lpp0aca"`
 
 ### Example
 
-```text
+```rust
 Encrypt("banana") ➞ "0n0n0baca"
 
 Encrypt("karaca") ➞ "0c0r0kaca"
