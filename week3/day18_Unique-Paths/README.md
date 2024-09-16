@@ -11,17 +11,17 @@ How many possible unique paths are there?
 **Example 1**
 
 <p align="left">
-  <img src="../../assets/robot_maze.png" alt="Robot Maze">
+  <img src="assets/robot_maze.png" alt="Robot Maze">
 </p>
 
-```text
+```rust
 Input: m = 3, n = 7
 Output: 28
 ```
 
 **Example 2**
 
-```text
+```rust
 Input: m = 3, n = 2
 Output: 3
 Explanation:
