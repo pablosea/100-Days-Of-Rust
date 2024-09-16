@@ -2,7 +2,7 @@
 
 A prison can be represented as an array of cells. Each cell contains exactly one prisoner. A `1` represents an unlocked cell and a `0` represents a locked cell.
 
-```
+```rust
 [1, 1, 0, 0, 0, 1, 0]
 ```
 
@@ -10,7 +10,7 @@ Starting inside the leftmost cell, you are tasked with seeing how many prisoners
 
 So, if we use the example above:
 
-```
+```rust
 [1, 1, 0, 0, 0, 1, 0]
 // You free the prisoner in the 1st cell.
 
@@ -32,7 +32,7 @@ Create a function that, given this unique prison arrangement, returns the number
 
 **Example 1**
 
-```text
+```rust
 freedPrisoners([1, 1, 0, 0, 0, 1, 0]) ➞ 4
 
 freedPrisoners([1, 1, 1]) ➞ 1
