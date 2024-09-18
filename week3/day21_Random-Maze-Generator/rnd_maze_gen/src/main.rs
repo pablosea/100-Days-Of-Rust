@@ -120,7 +120,7 @@ fn draw_maze(height: usize, width: usize) {
     }
 
     // Print the bottom walls
-    for x in 0..maze.width {
+    for _x in 0..maze.width {
         print!("+---");
     }
     println!("+");
