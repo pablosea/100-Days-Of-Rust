@@ -1,20 +1,51 @@
 use rand::{self, Rng};
 
+/// Represents the four possible walls of a cell
+#[derive(Clone, Copy, Debug)]
+enum Wall {
+    Top,
+    Right,
+    Bottom,
+    Left,
+}
+
+impl Wall {
+    fn opposite(&self) -> Wall {
+        match self {
+            Wall::Top => Wall::Bottom,
+            Wall::Right => Wall::Left,
+            Wall::Bottom => Wall::Top,
+            Wall::Left => Wall::Right,
+        }
+    }
+}
+
+/// Represents a single cell in the maze
+#[derive(Clone, Copy)]
 pub struct Cell {
     visited: bool,
     walls: [bool; 4],
 }
 
 impl Cell {
+    /// Creates a new cell with all walls intact and not visited
     pub fn new() -> Cell {
         Cell {
             visited: false,
-            walls: [true, true, true, true],
+            walls: [true; 4],
         }
     }
-    
+
+    fn has_wall(&self, wall: Wall) -> bool {
+        self.walls[wall as usize]
+    }
+
+    fn remove_wall(&mut self, wall: Wall) {
+        self.walls[wall as usize] = false;
+    }
 }
 
+/// Represents the entire maze
 pub struct Maze {
     width: usize,
     height: usize,
@@ -22,26 +53,39 @@ pub struct Maze {
 }
 
 impl Maze {
-    pub fn new(width: usize, height: usize) -> Maze {
-        let mut cells = Vec::with_capacity(width * height);
-        for _ in 0..width * height {
-            cells.push(Cell::new());
+    /// Creates a new maze with the specified dimensions
+    ///
+    /// # Arguments
+    ///
+    /// * `width` - The width of the maze
+    /// * `height` - The height of the maze
+    ///
+    /// # Errors
+    ///
+    /// Returns an error if width or height is 0
+    pub fn new(width: usize, height: usize) -> Result<Maze, &'static str> {
+        if width == 0 || height == 0 {
+            return Err("Maze dimensions must be greater than 0");
         }
-        Maze {
+        let cells = (0..width * height).map(|_| Cell::new()).collect();
+        Ok(Maze {
             width,
             height,
             cells,
-        }
+        })
     }
 
+    /// Gets a reference to the cell at the specified coordinates
     pub fn get(&self, x: usize, y: usize) -> &Cell {
         &self.cells[y * self.width + x]
     }
 
+    /// Gets a mutable reference to the cell at the specified coordinates
     pub fn get_mut(&mut self, x: usize, y: usize) -> &mut Cell {
         &mut self.cells[y * self.width + x]
     }
 
+    /// Gets the valid neighboring coordinates of a cell
     pub fn get_neighbors(&self, x: usize, y: usize) -> Vec<(usize, usize)> {
         let mut neighbors = Vec::new();
         if x > 0 {
@@ -58,48 +102,57 @@ impl Maze {
         }
         neighbors
     }
-    
 }
 
-fn draw_maze(height: usize, width: usize) {
-    let mut maze = Maze::new(width, height);
+fn generate_maze(maze: &mut Maze) {
     let mut rng = rand::thread_rng();
     let mut stack = Vec::new();
-    let mut x = 0;
-    let mut y = 0;
+    let (mut x, mut y) = (0, 0);
     maze.get_mut(x, y).visited = true;
+
     loop {
         let neighbors = maze.get_neighbors(x, y);
-        let mut unvisited_neighbors = Vec::new();
-        for &(nx, ny) in &neighbors {
-            if !maze.get(nx, ny).visited {
-                unvisited_neighbors.push((nx, ny));
-            }
-        }
+        let unvisited_neighbors: Vec<_> = neighbors
+            .iter()
+            .filter(|&&(nx, ny)| !maze.get(nx, ny).visited)
+            .collect();
+
         if !unvisited_neighbors.is_empty() {
             stack.push((x, y));
-            let (nx, ny) = unvisited_neighbors[rng.gen_range(0..unvisited_neighbors.len())];
-            let current_index = neighbors.iter().position(|&(cx, cy)| cx == nx && cy == ny).unwrap();
-            let neighbor_index = maze.get_neighbors(nx, ny).iter().position(|&(cx, cy)| cx == x && cy == y).unwrap();
-            maze.get_mut(x, y).walls[current_index] = false;
-            maze.get_mut(nx, ny).walls[neighbor_index] = false;
-            x = nx;
-            y = ny;
+            let &(next_x, next_y) = unvisited_neighbors[rng.gen_range(0..unvisited_neighbors.len())];
+            
+            let wall_to_remove = if next_x < x {
+                Wall::Left
+            } else if next_x > x {
+                Wall::Right
+            } else if next_y < y {
+                Wall::Top
+            } else {
+                Wall::Bottom
+            };
+
+            maze.get_mut(x, y).remove_wall(wall_to_remove);
+            maze.get_mut(next_x, next_y).remove_wall(wall_to_remove.opposite());
+
+            x = next_x;
+            y = next_y;
             maze.get_mut(x, y).visited = true;
-        } else if let Some((nx, ny)) = stack.pop() {
-            x = nx;
-            y = ny;
+        } else if let Some((prev_x, prev_y)) = stack.pop() {
+            x = prev_x;
+            y = prev_y;
         } else {
             break;
         }
-    }    
-    
-    // Print the maze with correct formatting
+    }
+}
+
+/// Prints the maze to the console
+fn print_maze(maze: &Maze) {
     for y in 0..maze.height {
         // Print the top walls
         for x in 0..maze.width {
             print!("+");
-            if maze.get(x, y).walls[0] || y == 0 {
+            if maze.get(x, y).has_wall(Wall::Top) || y == 0 {
                 print!("---");
             } else {
                 print!("   ");
@@ -109,7 +162,7 @@ fn draw_maze(height: usize, width: usize) {
 
         // Print the side walls and spaces
         for x in 0..maze.width {
-            if maze.get(x, y).walls[3] {
+            if maze.get(x, y).has_wall(Wall::Left) {
                 print!("|");
             } else {
                 print!(" ");
@@ -126,6 +179,11 @@ fn draw_maze(height: usize, width: usize) {
     println!("+");
 }
 
-fn main() {
-    draw_maze(5,7);
+fn main() -> Result<(), &'static str> {
+    let height = 5;
+    let width = 7;
+    let mut maze = Maze::new(width, height)?;
+    generate_maze(&mut maze);
+    print_maze(&maze);
+    Ok(())
 }
