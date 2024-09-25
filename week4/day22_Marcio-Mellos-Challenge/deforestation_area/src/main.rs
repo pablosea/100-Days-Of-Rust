@@ -10,8 +10,8 @@ fn get_football_fields(area: f64){
 
     let total_football_pitches: f64 = total_area_km / euro_field;
     let total_football_fields: f64 = total_area_km / american_field;
-    
-    println!("The area of deforestation is {} european football pitches, or {} American football fields.", 
+
+    println!("The area of deforestation is {} European football pitches, or {} American football fields.", 
                 total_football_pitches, 
                 total_football_fields
             );
